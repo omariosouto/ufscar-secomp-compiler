@@ -3,9 +3,9 @@ module.exports = {
     public class Teste {
         public static void main(String[] args) {
             new Teste3().teste();
-            // while(true) {
+            while(true) {
                 System.out.println("Hello world!!!");
-            // }
+            }
         } 
     }
     

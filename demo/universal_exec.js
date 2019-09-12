@@ -24,8 +24,14 @@ const languages = {
 function universalExec({ code, language }) {
     const id = Math.floor(Math.random() * 1000); // We should use an UUID
     const { start, args } = languages[language](code, id);
-    console.log(start,args);
+
+    setTimeout(() => {
+        spawnSync('docker', `rm --force ${language+id}`.split(' '))
+    }, 5000);
+    
     const execution = spawnSync(start, args);
+
+    
 
     return execution.stdout
 }
