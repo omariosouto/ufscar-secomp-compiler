@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const universalExec = require('./universal_exec');
+const javaCodeExample = require('./input-examples/java');
 
 app.get('/', (_, res) => {
     console.log('Request')
@@ -12,6 +13,14 @@ app.get('/', (_, res) => {
         `
     }
 
+    const output = universalExec(input)
+    res.send(`Output: ${output}`)
+    console.log('Response')
+})
+
+app.get('/java', (_, res) => {
+    console.log('Request')
+    const input = javaCodeExample
     const output = universalExec(input)
     res.send(`Output: ${output}`)
     console.log('Response')
